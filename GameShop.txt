@@ -1,0 +1,40 @@
+Game
+====================
+- Id
+- GameName
+- Publisher
+- PlayTime
+- ReleaseDate
+- GameType
+- Price
+- ConsolesId
+
+Console (ADD)
+====================
+- Id
+- ConsoleName
+- ReleaseDate
+- Price
+
+Player
+====================
+- Id
+- PlayerName
+- UserName
+- Email
+- Phone
+- BirthDate
+- Gender
+- Password
+
+Order
+====================
+- Id
+- Discount
+- Game
+- Player
+- DiscountPrice
+- OrderDate
+
+*> Add Forget password (By Email and Phone number)
+*> IQueryable<T> and IEnumerable<T> and List<T>
