@@ -28,16 +28,16 @@ namespace FinalGameShop.Controllers.WebApi
             }
         }
 
-        //GET : Api/Player/{id}
+        //GET : Api/Player/{username:regex(^[A-Za-z0-9, ]+$)}
         [HttpGet]
-        [Route("api/Player/AllPlayers/{id}")]
-        public PlayerDto GetPlayer(int id)
+        [Route("api/Player/AllPlayers/{username:regex(^[A-Za-z0-9, ]+$)}")]
+        public PlayerDto GetPlayer(string username)
         {
             using (FinalGameShopDBContext finalDBContext = new FinalGameShopDBContext())
             {
                 var OnePlayerDto = finalDBContext.Player
                     .Select(Mapper.Map<Player, PlayerDto>)
-                    .Where(x => x.Id == id)
+                    .Where(x => x.UserName.ToLower() == username.ToLower())
                     .SingleOrDefault();
 
                 return OnePlayerDto;
@@ -56,14 +56,14 @@ namespace FinalGameShop.Controllers.WebApi
                     .Where(x => x.UserName.ToLower() == logInPlayerDto.UserName.ToLower() && x.Password == logInPlayerDto.Password)
                     .SingleOrDefault();
 
-                return Json(LogInPlayerDto.Id);
+                return Json(LogInPlayerDto.UserName);
             }
         }
 
         //POST : Api/Player
         [HttpPost]
         [Route("api/Player/CreatePlayer")]
-        public RegisterPlayerDto CreatePlayer([FromBody]RegisterPlayerDto registerPlayerDto)
+        public IHttpActionResult CreatePlayer([FromBody]RegisterPlayerDto registerPlayerDto)
         {
             using (FinalGameShopDBContext finalDBContext = new FinalGameShopDBContext())
             {
@@ -71,8 +71,9 @@ namespace FinalGameShop.Controllers.WebApi
                 finalDBContext.Player.Add(Player);
                 finalDBContext.SaveChanges();
 
-                return registerPlayerDto;
+                return Json(registerPlayerDto);
             }
         }
+
     }
 }

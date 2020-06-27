@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="/Scripts/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="Header">
+        <h1>Game Shop Home</h1>
+        @*<span id="SaveUserName"></span>*@
+        <a id="LogInLink" href="~/Player/LogIn">LogIn</a>
+        <a id="RegistrationLink" href="~/Player/Register">Register</a>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <div class="Footer">
+        &copy; @DateTime.Now.Year - Game Shop
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h2>Register Player</h2>
+        </div>
+
+        <form id="myform" class="myform">
+            <label for="PlayerName">Player Name</label><br />
+            <input id="PlayerName" type="text" name="PlayerName" /><br />
+
+            <label for="UserName">User Name</label><br />
+            <input id="UserName" type="text" name="UserName" /><br />
+
+            <label for="Email">Email</label><br />
+            <input id="Email" type="email" name="Email" /><br />
+
+            <label for="PhoneNumber">Phone Number</label><br />
+            <input id="PhoneNumber" type="number" name="PhoneNumber" /><br />
+
+            <label for="BirthDate">Birth Date</label><br />
+            <input id="BirthDate" type="date" name="BirthDate" /><br />
+
+            <label for="Gender">Select Gender</label><br />
+            <select id="Gender" name="Gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br />
+
+            <label for="Password">Password</label><br />
+            <input id="Password" type="password" name="Password" /><br />
+
+            <label for="ConfirmPassword">Confirm Password</label><br />
+            <input id="ConfirmPassword" type="password" name="ConfirmPassword" /><br />
+
+            <button id="submit">Submit</button>
+        </form>
+
+    </div>
+    <script src="~/ClientSide/JS/Player/Register.js"></script>
+</body>
+</html>

@@ -45,7 +45,7 @@ namespace FinalGameShop.Controllers.WebApi
 
         //POST : Api/Order
         [HttpPost]
-        public OrderDto CreateOrder([FromBody]OrderDto orderDto)
+        public IHttpActionResult CreateOrder([FromBody]OrderDto orderDto)
         {
             using (FinalGameShopDBContext finalDBContext = new FinalGameShopDBContext())
             {
@@ -53,7 +53,7 @@ namespace FinalGameShop.Controllers.WebApi
                 finalDBContext.Order.Add(createOrder);
                 finalDBContext.SaveChanges();
 
-                return orderDto;
+                return Json(orderDto);
             }
         }
     }
